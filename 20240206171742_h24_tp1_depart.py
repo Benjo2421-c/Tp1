@@ -83,7 +83,6 @@ for étudiant in liste_étudiants:
 # Vérification du double seuil de 60% et calcul du nombre d'étudiants ayant passé le cours.
     if moyenne_tp >= 60 and moyenne_examen >= 60 :
         étudiant_passés +=1
-        
         moyennes_étudiants += ((moyenne_examen + moyenne_tp) /2)
         moyennes_passés = moyennes_étudiants / étudiant_passés
 
@@ -92,7 +91,6 @@ for étudiant in liste_étudiants:
     note_étudiant = (moyenne_examen + moyenne_tp) /2
     taux_succès = (étudiant_passés /len(liste_étudiants)) *100 
 
-
 # Arrondir les nombres
     note_étudiant_arr = round(note_étudiant,2)
     moyennes_passé_arr = round(moyennes_passés,2)
@@ -100,12 +98,6 @@ for étudiant in liste_étudiants:
     taux_succès_arr = round(taux_succès,2)
 
     dictionnaire.append({"ID": étudiant[0], "note": note_étudiant_arr, "échec": note_étudiant_arr < 60})
-
-
-    
-    
-    
-  
 
 print(f"Le nombre d'étudiants ayant passé le cours est de : {étudiant_passés} étudiants")
 print(f"La moyenne de ces étudiants est de : {moyennes_passé_arr}%")
@@ -130,7 +122,7 @@ print(dictionnaire)
 # Une fois cette liste de dictionnaire obtenue, imprimez-la dans le terminal. 
 
 
-#Je teste ce qui ne marche pas
+
 
 
 
