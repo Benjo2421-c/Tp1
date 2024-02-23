@@ -83,12 +83,20 @@ for étudiant in liste_étudiants:
 # Vérification du double seuil de 60% et calcul du nombre d'étudiants ayant passé le cours.
     if moyenne_tp >= 60 and moyenne_examen >= 60 :
         étudiant_passés +=1
-        moyennes_étudiants += ((moyenne_examen + moyenne_tp) /2)
+        note_étudiant = (moyenne_examen + moyenne_tp) /2
+        moyennes_étudiants += note_étudiant
         moyennes_passés = moyennes_étudiants / étudiant_passés
 
+    elif moyenne_examen < 60 or moyenne_tp < 60:
+        if moyenne_examen < moyenne_tp:
+            note_étudiant = moyenne_examen
+        elif moyenne_examen > moyenne_tp:
+            note_étudiant = moyenne_tp
+        else: 
+            note_étudiant = (moyenne_examen + moyenne_tp) /2
+
 # Calcul des notes
-    note_finale += ((moyenne_examen + moyenne_tp) /2) / len(liste_étudiants)
-    note_étudiant = (moyenne_examen + moyenne_tp) /2
+    note_finale +=  note_étudiant/len(liste_étudiants)
     taux_succès = (étudiant_passés /len(liste_étudiants)) *100 
 
 # Arrondir les nombres
@@ -99,11 +107,11 @@ for étudiant in liste_étudiants:
 
     dictionnaire.append({"ID": étudiant[0], "note": note_étudiant_arr, "échec": note_étudiant_arr < 60})
 
-print(f"Le nombre d'étudiants ayant passé le cours est de : {étudiant_passés} étudiants")
-print(f"La moyenne de ces étudiants est de : {moyennes_passé_arr}%")
-print(f"La moyenne de tous les étudiants est de : {note_finale_arr}%")
-print(f"Le taux de succès est de : {taux_succès_arr}%")
-print(dictionnaire)
+print(f"Le nombre d'étudiants ayant passé le cours est de : \n{étudiant_passés} étudiants")
+print(f"La moyenne de ces étudiants est de : \n{moyennes_passé_arr}%")
+print(f"La moyenne de tous les étudiants est de : \n{note_finale_arr}%")
+print(f"Le taux de succès est de : \n{taux_succès_arr}%")
+print(f"Le noveau dictionnaire est : \n{dictionnaire}")
 
 
 
